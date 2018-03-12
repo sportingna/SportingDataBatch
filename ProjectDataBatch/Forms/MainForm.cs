@@ -12,10 +12,13 @@ namespace ProjectDataBatch
 {
     public partial class MainForm : Form
     {
+        private ISportsAPI api;
+
         public MainForm()
         {
             InitializeComponent();
-            var urlList = new SportAPI().GetURLList();
+            api = new SportAPI();
+            var urlList = api.GetURLList();
             urlListBox.DataSource = GetNameFromURLList(urlList);
 
         }
@@ -39,6 +42,12 @@ namespace ProjectDataBatch
         private void runDataCollection()
         {
             ISportsAPI api = new SportAPI();
+        }
+
+        private void RunSelectButton_Click(object sender, EventArgs e)
+        {
+           bool successful = api.RunAPI(urlListBox.SelectedItem.ToString());
+            
         }
     }
 }

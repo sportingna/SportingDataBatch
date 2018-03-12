@@ -30,11 +30,12 @@
         {
             this.Start = new System.Windows.Forms.Button();
             this.urlListBox = new System.Windows.Forms.ListBox();
+            this.RunSelectButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Start
             // 
-            this.Start.Location = new System.Drawing.Point(65, 367);
+            this.Start.Location = new System.Drawing.Point(47, 415);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(75, 23);
             this.Start.TabIndex = 0;
@@ -50,11 +51,22 @@
             this.urlListBox.Size = new System.Drawing.Size(170, 303);
             this.urlListBox.TabIndex = 1;
             // 
+            // RunSelectButton
+            // 
+            this.RunSelectButton.Location = new System.Drawing.Point(47, 346);
+            this.RunSelectButton.Name = "RunSelectButton";
+            this.RunSelectButton.Size = new System.Drawing.Size(96, 23);
+            this.RunSelectButton.TabIndex = 2;
+            this.RunSelectButton.Text = "Run Selected ";
+            this.RunSelectButton.UseVisualStyleBackColor = true;
+            this.RunSelectButton.Click += new System.EventHandler(this.RunSelectButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(280, 450);
+            this.Controls.Add(this.RunSelectButton);
             this.Controls.Add(this.urlListBox);
             this.Controls.Add(this.Start);
             this.Name = "MainForm";
@@ -67,6 +79,7 @@
 
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.ListBox urlListBox;
+        private System.Windows.Forms.Button RunSelectButton;
     }
 }
 

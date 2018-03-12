@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace ProjectDataBatch
 {
-    internal interface ISportsAPI
+    interface ISportsAPI
     {
         BsonDocument GetBson();
-        void RunAPI();
+        bool RunAPI(string get);
         List<URLModel> GetURLList();
     }
 }

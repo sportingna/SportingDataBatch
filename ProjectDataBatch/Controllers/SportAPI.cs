@@ -5,12 +5,14 @@ using MongoDB.Bson;
 using System.Collections.Generic;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using ProjectDataBatch.Controllers;
 
 namespace ProjectDataBatch
 {
     internal class SportAPI : ISportsAPI
     {
         private string results;
+        private List<URLModel> urlList;
         public BsonDocument GetBson()
         {
             return MongoDB.Bson.Serialization.BsonSerializer.Deserialize<BsonDocument>(results);
@@ -23,7 +25,7 @@ namespace ProjectDataBatch
             var collection = database.GetCollection<BsonDocument>("URL");
             var filter = Builders<BsonDocument>.Filter.Eq("Type", "URL");
             var result = collection.Find(filter).ToList();
-            List<URLModel> urlList = new List<URLModel>();
+            urlList = new List<URLModel>();
             foreach (var url in result)
             {
                 
@@ -49,9 +51,11 @@ namespace ProjectDataBatch
             
         }
 
-        public void RunAPI()
+        public bool RunAPI(string get)
         {
-            throw new System.NotImplementedException();
+            URLModel urlRequest = urlList.Find(x => x.Get == get);
+            ISportingRequest request = SportingAPIFactory.GetRequest(get);
+            return request.Run(urlRequest);
         }
     }
 }

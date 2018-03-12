@@ -12,6 +12,6 @@ namespace ProjectDataBatch
         [BsonElement("Type")]
         public string Type { get; set; }
         [BsonElement("Position")]
-        public string Position { get; set; }
+        public Int32 Position { get; set; }
     }
 }

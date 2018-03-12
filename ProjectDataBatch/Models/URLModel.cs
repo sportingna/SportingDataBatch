@@ -16,5 +16,7 @@ namespace ProjectDataBatch
         public List<Parameter> Parameters { get; set; }
         public string Comment { get; set; }
         public string URL { get; set; }
+        public string PrimaryKey { get; set; }
+        public string SecondaryKey { get; set; }
     }
 }
